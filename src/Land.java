@@ -11,7 +11,7 @@ public class Land {
 
     public int[] Grid(int move, int[] currentLocation, String name){
         //Move direction
-        // Direction 
+        // Direction
         this.move = move;
         Scanner input = new Scanner(System.in);
         //ArrayList<Integer> grid = new ArrayList<>();
@@ -29,6 +29,8 @@ public class Land {
         }
 
         // Choose direction
+        
+
         // fill the character spot
         grid[location[0]][location[1]] = name;
 
