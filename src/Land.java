@@ -29,11 +29,30 @@ public class Land {
         }
 
         // Choose direction
-        if (move == 1){
-            if (grid.equals("---") || grid.equals("!")){
-
+        int end = 0;
+        while (end == 0){
+            end = 0;
+            // North movement
+            if (move == 1) {
+                if (grid[location[0]][location[1]].equals("---") || grid[location[0]][location[1]].equals("!")) {
+                    System.out.println("Sorry you are out bounds! Please choose a different location");
+                    int tryAgain = new Scanner(System.in).nextInt();
+                    move = tryAgain;
+                    break;
+                }
+                location[0] -= 1;
             }
-            location[0]-= 1;
+
+            if (move == 2) {
+                if (grid[location[0]][location[1]].equals("---") || grid[location[0]][location[1]].equals("!")) {
+                    System.out.println("Sorry you are out bounds! Please choose a different location");
+                    int tryAgain = new Scanner(System.in).nextInt();
+                    move = tryAgain;
+                    break;
+                }
+                location[0] -= 1;
+            }
+
 
         }
 
