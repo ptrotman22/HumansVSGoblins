@@ -29,7 +29,13 @@ public class Land {
         }
 
         // Choose direction
-        
+        if (move == 1){
+            if (grid.equals("---") || grid.equals("!")){
+
+            }
+            location[0]-= 1;
+
+        }
 
         // fill the character spot
         grid[location[0]][location[1]] = name;
