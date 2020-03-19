@@ -42,7 +42,7 @@ public class Land {
                 }
                 location[0] -= 1;
             }
-
+            //South Movement
             if (move == 2) {
                 if (grid[location[0]][location[1]].equals("---") || grid[location[0]][location[1]].equals("!")) {
                     System.out.println("Sorry you are out bounds! Please choose a different location");
@@ -50,10 +50,28 @@ public class Land {
                     move = tryAgain;
                     break;
                 }
-                location[0] -= 1;
+                location[0] += 1;
             }
-
-
+            // West Movement
+            if (move == 3) {
+                if (grid[location[0]][location[1]].equals("---") || grid[location[0]][location[1]].equals("!")) {
+                    System.out.println("Sorry you are out bounds! Please choose a different location");
+                    int tryAgain = new Scanner(System.in).nextInt();
+                    move = tryAgain;
+                    break;
+                }
+                location[1] -= 1;
+            }
+            // East Movement
+            if (move == 4) {
+                if (grid[location[0]][location[1]].equals("---") || grid[location[0]][location[1]].equals("!")) {
+                    System.out.println("Sorry you are out bounds! Please choose a different location");
+                    int tryAgain = new Scanner(System.in).nextInt();
+                    move = tryAgain;
+                    break;
+                }
+                location[1] += 1;
+            }
         }
 
         // fill the character spot
