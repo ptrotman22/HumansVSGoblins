@@ -7,7 +7,7 @@ public class Character {
         int currentHealth = health - hit;
 
         if (currentHealth <= 0){
-            
+
         }
 
         return currentHealth;
