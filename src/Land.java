@@ -9,7 +9,7 @@ public class Land {
     int move = 0;
 
 
-    public int[] Grid(int move, int[] currentLocation, String name){
+    public static int[] Grid(int move, int[] currentLocation, String name){
         //Move direction
         // Direction
         this.move = move;
