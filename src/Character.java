@@ -1,4 +1,4 @@
-import java.util.*
+import java.util.*;
 public class Character {
     public int Health(int previousHealth, String name){
         int health = previousHealth;

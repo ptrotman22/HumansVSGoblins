@@ -11,6 +11,7 @@ public class Human extends Character{
     public int getMove(){
         return move;
     }
+    //
     public int Move(int move){
         this.move = move;
         Scanner scanner = new Scanner(System.in);
