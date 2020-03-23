@@ -9,19 +9,28 @@ public class Land {
     int move = 0;
 
 
-    public static int[] Grid(int move, int[] currentLocation, String name) {
+    public static int[] Grid(int moveDirection, int[] currentLocation, String name) {
         //Move direction
         // Direction
-        this.move = move;
+        int move = moveDirection;
         Scanner input = new Scanner(System.in);
         //ArrayList<Integer> grid = new ArrayList<>();
         String[][] grid = new String[6][6];
-        int[] location = new int[currentLocation.length];
+        int[][] numGrid = new int[6][6];
+        int[] location = new int[2];
 
         // For loops governing movement
-        // Create border
+        // Fill Grid
+        int count = 1;
         for (int i = 0; i < grid.length; i++) {
-            grid[i][i] = "| |";
+            for (int j = 0; j < grid[0].length; j++){
+                grid[i][j] = "| |";
+                numGrid[i][j] = count;
+                count++;
+            }
+        }
+        // Create border
+        for (int i = 0; i < grid[0].length; i++) {
             grid[0][i] = "---";
             grid[i][6] = "!";
             grid[i][0] = "!";
@@ -109,6 +118,10 @@ public class Land {
 
 
         return location;
+    }
+
+    public int GridCheck(){
+
     }
 }
 
