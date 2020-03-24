@@ -17,7 +17,8 @@ public class Land {
         //ArrayList<Integer> grid = new ArrayList<>();
         String[][] grid = new String[6][6];
         int[][] numGrid = new int[6][6];
-        int[] location = new int[2];
+        int[] location = currentLocation.clone();
+
 
         // For loops governing movement
         // Fill Grid
@@ -31,6 +32,7 @@ public class Land {
         }
 
         // Choose direction
+        int step = 1;
         int end = 0;
         int mistake = 0;
         while (end == 0) {
@@ -38,107 +40,113 @@ public class Land {
             mistake = 0;
             // North movement
             if (move == 1) {
-                location[0] -= 1;
-                if (location[0] < 0 || location[0] > 6) {
-                    location[0] += 1;
+                location[0] -= step;
+                if (location[0] < 0 || location[0] > (grid.length-1)) {
+                    location[0] += step;
                     mistake++;
                     while (mistake >= 1) {
                         System.out.println("Sorry you are out bounds! Please choose a different location");
                         int tryAgain = new Scanner(System.in).nextInt();
                         move = tryAgain;
-                        end = 1;
                         break;
                     }
+                }
+                else {
+                    end = 1;
                 }
             }
             //South Movement
             if (move == 2) {
-                location[0] += 1;
-                if (location[0] < 0 || location[0] > 6) {
-                    location[0] -= 1;
+                location[0] += step;
+                if (location[0] < 0 || location[0] > (grid.length-1)) {
+                    location[0] -= step;
                     mistake++;
                     while (mistake >= 1) {
                         System.out.println("Sorry you are out bounds! Please choose a different location");
                         int tryAgain = new Scanner(System.in).nextInt();
                         move = tryAgain;
-                        end = 1;
                         break;
                     }
                 }
-
+                else {
+                    end = 1;
+                }
             }
             // West Movement
             if (move == 3) {
-                location[1] -= 1;
-                if (location[1] < 0 || location[1] > 6) {
-                    location[1] += 1;
+                location[1] -= step;
+                if (location[1] < 0 || location[1] > (grid.length-1)) {
+                    location[1] += step;
                     mistake++;
                     while (mistake >= 1) {
                         System.out.println("Sorry you are out bounds! Please choose a different location");
                         int tryAgain = new Scanner(System.in).nextInt();
                         move = tryAgain;
-                        end = 1;
                         break;
                     }
                 }
-
+                else {
+                    end = 1;
+                }
             }
             // East Movement
             if (move == 4) {
-                location[1] += 1;
-                if (location[1] < 0 || location[1] > 6) {
-                    location[1] -= 1;
+                location[1] += step;
+                if (location[1] < 0 || location[1] > (grid.length-1)) {
+                    location[1] -= step;
                     mistake++;
                     while (mistake >= 1) {
                         System.out.println("Sorry you are out bounds! Please choose a different location");
                         int tryAgain = new Scanner(System.in).nextInt();
                         move = tryAgain;
-                        end = 1;
                         break;
                     }
                 }
-
+                else {
+                    end = 1;
+                }
             }
         }
 
         // fill the character spot
-        grid[location[0]][location[1]] = name;
+        grid[location[0]][location[1]] = "|"+ name + "|";
 
         // Print Map
         for (int i = 0; i < grid.length; i++) {
             System.out.print(grid[0][i]);
-            System.out.println();
         }
+        System.out.println();
+
         for (int i = 0; i < grid.length; i++) {
             System.out.print(grid[1][i]);
-            System.out.println();
         }
+        System.out.println();
+
         for (int i = 0; i < grid.length; i++) {
             System.out.print(grid[2][i]);
-            System.out.println();
         }
+        System.out.println();
+
         for (int i = 0; i < grid.length; i++) {
             System.out.print(grid[3][i]);
-            System.out.println();
         }
+        System.out.println();
+
         for (int i = 0; i < grid.length; i++) {
             System.out.print(grid[4][i]);
-            System.out.println();
         }
+        System.out.println();
+
         for (int i = 0; i < grid.length; i++) {
             System.out.print(grid[5][i]);
-            System.out.println();
         }
-        for (int i = 0; i < grid.length; i++) {
-            System.out.print(grid[6][i]);
-            System.out.println();
-        }
+        System.out.println();
 
 
         return location;
     }
 
-    public int GridCheck(){
+    public void GridCheck(){
 
     }
 }
