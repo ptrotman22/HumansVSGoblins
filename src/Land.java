@@ -108,8 +108,13 @@ public class Land {
             }
         }
 
+        // Goblin Movement
+        location = GoblinGridCheck(location, grid);
+
         // fill the character spot
         grid[location[0]][location[1]] = "|"+ name + "|";
+        grid[location[2]][location[3]] = "|g|";
+
 
         // Print Map
         for (int i = 0; i < grid.length; i++) {
@@ -146,8 +151,86 @@ public class Land {
         return location;
     }
 
-    public void GridCheck(){
+    public static int[] GoblinGridCheck(int[] currentLocation, String[][] grid){
 
+        int[] location = currentLocation.clone();
+        Random random = new Random();
+        int move = random.nextInt(4)+1;
+
+        // Choose direction
+        int step = 1;
+        int end = 0;
+        int mistake = 0;
+        while (end == 0) {
+            end = 0;
+            mistake = 0;
+            // North movement
+            if (move == 1) {
+                location[2] -= step;
+                if (location[2] < 0 || location[2] > (grid.length-1)) {
+                    location[2] += step;
+                    mistake++;
+                    while (mistake >= 1) {
+                        System.out.println("Sorry AI are out bounds! Please choose a different location");
+                        move = random.nextInt(4)+1;
+                        break;
+                    }
+                }
+                else {
+                    end = 1;
+                }
+            }
+            //South Movement
+            if (move == 2) {
+                location[2] += step;
+                if (location[2] < 0 || location[2] > (grid.length-1)) {
+                    location[2] -= step;
+                    mistake++;
+                    while (mistake >= 1) {
+                        System.out.println("Sorry AI are out bounds! Please choose a different location");
+                        move = random.nextInt(4)+1;
+                        break;
+                    }
+                }
+                else {
+                    end = 1;
+                }
+            }
+            // West Movement
+            if (move == 3) {
+                location[3] -= step;
+                if (location[3] < 0 || location[3] > (grid.length-1)) {
+                    location[3] += step;
+                    mistake++;
+                    while (mistake >= 1) {
+                        System.out.println("Sorry AI are out bounds! Please choose a different location");
+                        move = random.nextInt(4)+1;
+                        break;
+                    }
+                }
+                else {
+                    end = 1;
+                }
+            }
+            // East Movement
+            if (move == 4) {
+                location[3] += step;
+                if (location[3] < 0 || location[3] > (grid.length-1)) {
+                    location[3] -= step;
+                    mistake++;
+                    while (mistake >= 1) {
+                        System.out.println("Sorry AI are out bounds! Please choose a different location");
+                        move = random.nextInt(4)+1;
+                        break;
+                    }
+                }
+                else {
+                    end = 1;
+                }
+            }
+        }
+
+        return location;
     }
 }
 

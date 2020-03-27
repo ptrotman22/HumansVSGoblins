@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Goblin extends Character{
@@ -14,12 +15,8 @@ public class Goblin extends Character{
     //
     public int Move(int move){
         this.move = move;
-        Scanner scanner = new Scanner(System.in);
-        while (move < 1 || move > 4){
-            System.out.println("Sorry, You must choose between 1 and 4. Please try again");
-            int input = scanner.nextInt();
-            move = input;
-        }
+        Random random = new Random();
+        move = random.nextInt(4)+1;
 
         return move;
     }
